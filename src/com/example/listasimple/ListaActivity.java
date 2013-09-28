@@ -10,11 +10,18 @@ public class ListaActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);		
 	}
+
+	public void updateDetail(String nombre) {
+		//Obtener el fragmento del detalle
+		DetailFragment detail = (DetailFragment)getSupportFragmentManager().findFragmentById(R.id.fragment2);
+		detail.update(nombre);
+	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.lista, menu);
-		return true;
-	}	
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		// Inflate the menu; this adds items to the action bar if it is present.
+//		getMenuInflater().inflate(R.menu.lista, menu);
+//		return true;
+//	}
+	
 }

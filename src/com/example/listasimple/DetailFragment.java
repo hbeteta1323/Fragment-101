@@ -17,7 +17,13 @@ public class DetailFragment extends Fragment {
 		TextView textNombre=(TextView)view.findViewById(R.id.textNombre);
 		Bundle args = getArguments();
 		
-		String nombre = args.getString("nombre");
+		String nombre = null;
+		
+		if (args==null)
+			nombre="No se ha seleccionado ningun elemento";
+		else
+			nombre=args.getString("nombre");
+		
 		textNombre.setText(nombre);
 		return view;
 	}
@@ -26,5 +32,10 @@ public class DetailFragment extends Fragment {
 		DetailFragment fragment=new DetailFragment();
 		fragment.setArguments(extras);
 		return fragment;
+	}
+
+	public void update(String nombre) {
+		TextView textNombre = (TextView) getView().findViewById(R.id.textNombre);
+		textNombre.setText(nombre);
 	}
 }

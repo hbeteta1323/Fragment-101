@@ -32,9 +32,14 @@ public class MainFragment extends Fragment {
 			public void onItemClick(AdapterView<?> adapterView, View view, int position,long id) {
 				// TODO Auto-generated method stub
 				//Toast.makeText(ListaActivity.this, "Click item", Toast.LENGTH_LONG).show();
-				Intent intent=new Intent(getActivity(),DetailActivity.class);
-				intent.putExtra("nombre", nombres[position]);
-				startActivity(intent);
+				
+				if (getResources().getBoolean(R.bool.is_tablet)) {
+					((ListaActivity)getActivity()).updateDetail(nombres[position]);
+				} else {
+					Intent intent=new Intent(getActivity(),DetailActivity.class);
+					intent.putExtra("nombre", nombres[position]);
+					startActivity(intent);
+				}				
 			}
 		});
 	
